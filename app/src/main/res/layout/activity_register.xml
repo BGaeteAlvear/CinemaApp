@@ -7,48 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".RegisterActivity">
 
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            tools:layout_editor_absoluteY="269dp" tools:layout_editor_absoluteX="84dp" android:id="@+id/editNombre"
-            android:layout_alignParentStart="true" android:layout_marginStart="0dp"
-            android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_marginTop="178dp"
-            android:layout_marginLeft="0dp" android:hint="Ingrese Nombre"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:layout_alignParentStart="true" android:id="@+id/editPassword1"
-            android:layout_marginTop="6dp" android:layout_marginStart="1dp" android:layout_below="@+id/editNombre"
-            android:hint="Contraseña"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:layout_alignParentBottom="true" android:id="@+id/editPassword2"
-            android:layout_marginBottom="239dp" android:layout_alignParentStart="true" android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp" android:layout_alignParentLeft="true" android:layout_marginTop="7dp"
-            android:layout_below="@+id/editPassword1" android:hint="Repetir Contraseña"/>
-    <TextView
-            android:text="REGISTRO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="118dp"
-            android:id="@+id/textView" android:layout_marginTop="120dp" android:layout_marginRight="118dp"
-            tools:text="REGISTRO DE USUARIO" android:textSize="24sp" android:textStyle="bold"
-            android:textColor="@color/colorAccent"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:layout_alignParentStart="true" android:id="@+id/editEmail"
-            android:hint="Ingrese su Email" android:layout_alignParentBottom="true" android:layout_marginStart="0dp"
-            android:layout_marginBottom="186dp"/>
     <Button
             android:text="Registrar"
             android:layout_width="match_parent"
@@ -57,10 +15,41 @@
             android:textSize="18sp" android:background="@color/colorAccent" android:padding="18dp"
             android:textColor="@android:color/white" android:layout_alignParentStart="true"
             android:layout_marginStart="0dp"/>
-    <ImageView
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_alignParentTop="true" android:id="@+id/editText6" android:layout_marginTop="243dp"
+            android:layout_marginStart="0dp" android:hint="Nombre" android:layout_alignParentStart="true"
+            android:layout_marginLeft="0dp" android:layout_alignParentLeft="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:id="@+id/editText7" android:layout_marginStart="0dp"
+            android:layout_below="@+id/editText6" android:hint="Contraseña"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_below="@+id/editText7" android:id="@+id/editText8"
+            android:hint="Repita Contraseña" android:layout_marginTop="1dp" android:layout_marginStart="0dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_below="@+id/editText8" android:id="@+id/editText9"
+            android:hint="Email"/>
+    <TextView
+            android:text="REGISTRO DE NUEVO USUARIO"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="?attr/actionModeCloseDrawable"
-            android:layout_alignParentStart="true" android:layout_marginStart="276dp"
-            android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:id="@+id/imageView"
-            android:layout_marginTop="122dp" android:layout_marginLeft="276dp"/>
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_marginStart="65dp" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/textView2" android:layout_marginTop="178dp" android:layout_marginLeft="65dp"
+            android:textStyle="bold" android:textSize="18sp" android:textColor="@color/colorAccent"/>
 </RelativeLayout>
