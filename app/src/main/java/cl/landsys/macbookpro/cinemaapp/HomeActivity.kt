@@ -6,10 +6,14 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
+import kotlinx.android.synthetic.main.content_home.*
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,6 +34,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        // recycler view
+        val recyclerView:RecyclerView=findViewById(R.id.reciclerview)
+        recyclerView.layoutManager=LinearLayoutManager(this,LinearLayout.VERTICAL,false)
+
+        val movies = ArrayList<Movie>()
+
+        movies.add(Movie("pelicula 1",23,"R",R.drawable.bg, "todos los dias 21:hrs"))
+        movies.add(Movie("pelicula 2",12,"R",R.drawable.bg, "todos los dias 21:hrs"))
+        movies.add(Movie("pelicula 3",14,"R",R.drawable.bg, "todos los dias 21:hrs"))
+        movies.add(Movie("pelicula 4",41,"R",R.drawable.bg, "todos los dias 21:hrs"))
+        movies.add(Movie("pelicula 5",65,"R",R.drawable.bg, "todos los dias 21:hrs"))
+
+        val adapter = AdapterMovie(movies)
+        reciclerview.adapter=adapter
     }
 
     override fun onBackPressed() {
