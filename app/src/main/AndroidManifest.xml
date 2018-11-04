@@ -16,9 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity
+                android:name=".LoginActivity"
+                android:label="CinemaApp"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".RegisterActivity">
+        <activity
+                android:name=".RegisterActivity"
+                android:label="CinemaApp"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".HomeActivity"
+                android:label="@string/title_activity_home"
+                android:theme="@style/AppTheme">
         </activity>
     </application>
 
