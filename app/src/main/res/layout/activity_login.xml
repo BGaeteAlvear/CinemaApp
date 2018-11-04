@@ -39,12 +39,12 @@
             android:text="Registarse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true" android:id="@+id/textView2" android:layout_marginBottom="57dp"
+            android:layout_alignParentBottom="true" android:id="@+id/RegistrarTxV" android:layout_marginBottom="57dp"
             android:textColor="@android:color/white" android:textStyle="bold"/>
     <TextView
             android:text="Recordar Contraseña"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:id="@+id/ctextView3"
-            android:layout_alignStart="@+id/textView2" android:layout_marginBottom="26dp"
+            android:layout_alignStart="@+id/RegistrarTxV" android:layout_marginBottom="26dp"
             android:layout_marginStart="-32dp" android:textColor="@android:color/white"/>
 </RelativeLayout>
