@@ -39,6 +39,10 @@ class AdapterMovie(var list:ArrayList<Movie>):RecyclerView.Adapter<AdapterMovie.
             category.text=data.category
             Glide.with(itemView.context).load(data.thumbnail).into(thumbnail)
             date.text=data.date
+
+            itemView.setOnClickListener{
+                val deleteMovie = ListMovies().deleteMovie(data.title)
+            }
         }
     }
 

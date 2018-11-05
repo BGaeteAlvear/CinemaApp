@@ -9,8 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
 import android.widget.LinearLayout
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
@@ -18,7 +17,10 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.activity_create.*
 
+
 val listMovies = ListMovies()
+
+
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -44,16 +46,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val recyclerView:RecyclerView=findViewById(R.id.reciclerview)
         recyclerView.layoutManager= LinearLayoutManager(this,LinearLayout.VERTICAL,false) as RecyclerView.LayoutManager?
 
-        listMovies.apply {
 
-            addMovie(Movie("pelicula 1",50,"+18",R.drawable.descarga, "todos los dias 21:00 hrs"))
-            addMovie(Movie("pelicula 2",230,"+14",R.drawable.descarga, "todos los dias 15:00 hrs"))
-            addMovie(Movie("pelicula 3",68,"TE",R.drawable.descarga, "todos los dias 18:00 hrs"))
-
-        }
 
         val adapter = AdapterMovie(listMovies)
         reciclerview.adapter=adapter
+
     }
 
 
@@ -101,7 +98,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_my -> {
-
+                Toast.makeText(getApplicationContext(), "BRIAN GAETE  - " +
+                        "bri.gaete@alumnos.duoc.cl  -  " +
+                        "aplicación de CINEMAGIT",
+                    Toast.LENGTH_LONG).show();
             }
         }
 
@@ -119,6 +119,7 @@ class CreateActivity : AppCompatActivity() {
 
         btnGuardar.setOnClickListener { newMovie() }
         btnCancelar.setOnClickListener { back() }
+
     }
 
     fun newMovie(){
