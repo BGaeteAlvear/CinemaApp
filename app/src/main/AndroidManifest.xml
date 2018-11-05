@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".Create">
         </activity>
+        <activity android:name=".CreateActivity">
+        </activity>
     </application>
 
 </manifest>

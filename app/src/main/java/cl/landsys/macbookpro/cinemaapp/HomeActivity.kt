@@ -12,9 +12,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
+import kotlinx.android.synthetic.main.activity_create.*
+
+val listMovies = ListMovies()
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -40,17 +44,19 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val recyclerView:RecyclerView=findViewById(R.id.reciclerview)
         recyclerView.layoutManager= LinearLayoutManager(this,LinearLayout.VERTICAL,false) as RecyclerView.LayoutManager?
 
-        val movies = ArrayList<Movie>()
+        listMovies.apply {
 
-        movies.add(Movie("pelicula 1",23,"R",R.drawable.bg, "todos los dias 21:hrs"))
-        movies.add(Movie("pelicula 2",12,"R",R.drawable.bg, "todos los dias 21:hrs"))
-        movies.add(Movie("pelicula 3",14,"R",R.drawable.bg, "todos los dias 21:hrs"))
-        movies.add(Movie("pelicula 4",41,"R",R.drawable.bg, "todos los dias 21:hrs"))
-        movies.add(Movie("pelicula 5",65,"R",R.drawable.bg, "todos los dias 21:hrs"))
+            addMovie(Movie("pelicula 1",50,"+18",R.drawable.descarga, "todos los dias 21:00 hrs"))
+            addMovie(Movie("pelicula 2",230,"+14",R.drawable.descarga, "todos los dias 15:00 hrs"))
+            addMovie(Movie("pelicula 3",68,"TE",R.drawable.descarga, "todos los dias 18:00 hrs"))
 
-        val adapter = AdapterMovie(movies)
+        }
+
+        val adapter = AdapterMovie(listMovies)
         reciclerview.adapter=adapter
     }
+
+
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -83,7 +89,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 finish()
             }
             R.id.nav_new -> {
-                var intent = Intent(applicationContext, Create::class.java)
+                var intent = Intent(applicationContext, CreateActivity::class.java)
                 startActivity(intent)
                 finish()
 
@@ -102,4 +108,85 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+}
+
+
+class CreateActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_create)
+
+        btnGuardar.setOnClickListener { newMovie() }
+        btnCancelar.setOnClickListener { back() }
+    }
+
+    fun newMovie(){
+        val title:String
+        val horario:String
+        val classification = classification()
+        val minutos:String = txtDuracion.text.toString()
+
+
+
+        if (validate(txtPelicula.text.toString())){
+            title = txtPelicula.text.toString()
+
+            if (validate(txtHorario.text.toString())){
+                horario =txtPelicula.text.toString()
+
+                if(validate(minutos)){
+                    val min:Int = minutos.toInt()
+
+                    listMovies.addMovie(Movie(title,min,classification,R.drawable.descarga,horario))
+                    Toast.makeText(getApplicationContext(), "Pelicula Agregada Correctamente",
+                        Toast.LENGTH_SHORT).show();
+
+                    back()
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Minutos de la Pelicula es Requerido!",
+                        Toast.LENGTH_SHORT).show();
+                }
+
+            }else{
+                Toast.makeText(getApplicationContext(), "Horario de Pelicula es Requerido!",
+                    Toast.LENGTH_SHORT).show();
+            }
+
+        }else{
+            Toast.makeText(getApplicationContext(), "Titulo de Pelicula es Requerido!",
+                Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    fun validate(value:String):Boolean{
+        if(value.isNotEmpty()){
+            return true
+        }
+        return false
+    }
+
+    fun classification():String{
+        if (rbTE.isChecked()){
+            return "TE"
+        }else if(rb14.isChecked()){
+            return "+14"
+        }else if(rb18.isChecked()){
+            return "+18"
+        }else if(rb14.isChecked()){
+            return "+21"
+        }else{
+            return "SIN CLASIFICACIÓN"
+        }
+    }
+
+    fun back(){
+        var intent = Intent(applicationContext, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }
